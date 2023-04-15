@@ -4,9 +4,9 @@
 //using System.Text;
 //using System.Threading.Tasks;
 
-namespace Multidime_Array
+namespace Multidime_Arrays
 {
-    class MaxPlatform2x2
+    class MaxPlatform3x3
     {
         static void Main(string[] args)
         {
@@ -18,16 +18,16 @@ namespace Multidime_Array
             { 4, 6, 7, 9, 1, 0 }
             };
 
-            // Find the maximal sum platform of size 2 x 2
+            // Find the maximal sum platform of size 3 x 3
             long bestSum = long.MinValue;
             int bestRow = 0;
             int bestCol = 0;
-            for (int row = 0; row < matrix.GetLength(0) - 1; row++)
+            for (int row = 0; row < matrix.GetLength(0) - 3; row++)
             {
-                for (int col = 0; col < matrix.GetLength(1) - 1; col++)
+                for (int col = 0; col < matrix.GetLength(1) - 3; col++)
                 {
-                    long sum = matrix[row, col] + matrix[row, col + 1] +
-                                matrix[row + 1, col] + matrix[row + 1, col + 1];
+                    long sum = matrix[row, col] + matrix[row, col + 3] +
+                                matrix[row + 3, col] + matrix[row + 3, col + 3];
                     if (sum > bestSum)
                     {
                         bestSum = sum;
@@ -45,6 +45,7 @@ namespace Multidime_Array
             matrix[bestRow + 1, bestCol],
             matrix[bestRow + 1, bestCol + 1]);
             Console.WriteLine("The maximal sum is: {0}", bestSum);
+            Console.ReadKey();
         }
     }
 }
